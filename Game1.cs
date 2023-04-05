@@ -6,7 +6,10 @@ namespace Monogame_Basics
 {
     public class Game1 : Game
     {
-        Texture2D ballTexture;
+        Texture2D manTexture;
+        Texture2D cloudsTexture;
+        Texture2D groundTexture;
+        Texture2D UFOTexture;
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -32,7 +35,10 @@ namespace Monogame_Basics
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            ballTexture = Content.Load<Texture2D>("ball");
+            manTexture = Content.Load<Texture2D>("man");
+            cloudsTexture = Content.Load<Texture2D>("clouds");
+            groundTexture = Content.Load<Texture2D>("ground");
+            UFOTexture = Content.Load<Texture2D>("UFO");
 
         }
 
@@ -48,12 +54,17 @@ namespace Monogame_Basics
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.LightGray);
+            GraphicsDevice.Clear(Color.LightBlue);
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(ballTexture, new Vector2(0, 0), Color.White);
+            _spriteBatch.Draw(groundTexture, new Vector2(0,155), Color.White);
+            _spriteBatch.Draw(cloudsTexture, new Vector2(0, 0), Color.White);
+            _spriteBatch.Draw(UFOTexture, new Vector2(450, 100), Color.White);
+            for (int i = 300; i < 900; i += 200)
+                _spriteBatch.Draw(manTexture, new Vector2(i, 250), Color.White);
             _spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
