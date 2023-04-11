@@ -56,7 +56,7 @@ namespace Monogame_Basics
         {
             GraphicsDevice.Clear(Color.LightBlue);
 
-            // TODO: Add your drawing code here
+            // TODO: Add your drawing code here 
             _spriteBatch.Begin();
             _spriteBatch.Draw(groundTexture, new Vector2(0,155), Color.White);
             _spriteBatch.Draw(cloudsTexture, new Vector2(0, 0), Color.White);
